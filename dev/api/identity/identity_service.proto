@@ -1,0 +1,19 @@
+syntax = "proto3";
+package dev.api.identity;
+
+option go_package = "github.com/dev/api;pb";
+
+import "dev/api/identity/identity_payload.proto";
+import "google/api/annotations.proto";
+import "dev/api/identity/common.proto";
+
+
+
+service NiaIdentitySvc {
+  rpc NiaIdentityData(NiaRequest) returns (NiaResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/verify-nia",
+      body : "*"
+    };
+  }
+}

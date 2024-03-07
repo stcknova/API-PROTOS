@@ -1,0 +1,9 @@
+syntax = "proto3";
+package dev.api.identity;
+
+option go_package = "github.com/dev/api;pb";
+
+message IdentityStringValue {
+  // The string value.
+  string value = 1;
+}
