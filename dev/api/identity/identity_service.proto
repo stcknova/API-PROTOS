@@ -19,7 +19,7 @@ service NiaIdentitySvc {
 
   rpc HealthCheck(EmptyRequest) returns (EmptyResponse){
     option(google.api.http) = {
-      get : "api/v1/health",
+      post : "api/v1/health",
       body :  "*"
     };
   }
