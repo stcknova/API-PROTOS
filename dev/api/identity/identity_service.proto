@@ -17,10 +17,13 @@ service NiaIdentitySvc {
     };
   }
 
-  rpc HealthCheck(EmptyRequest) returns (EmptyResponse){
-    option(google.api.http) = {
-      post : "api/v1/health",
-      body :  "*"
+  rpc HealthCheck(EmptyRequest) returns (EmptyResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/health", // Primary HTTP mapping as GET
+      additional_bindings {
+        post: "/api/v1/health", // Using POST
+        body: "*"
+      }
     };
   }
 }
